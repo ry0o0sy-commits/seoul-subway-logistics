@@ -1,0 +1,24 @@
+# 서울 지하철 심야 화물수송 허브 입지 최적화 — 실행 환경
+# Python 3.13 기준. 아래는 실제 실행에 사용한 버전이다.
+# (하위 버전에서도 대체로 동작하나, 검증한 조합은 이것이다.)
+
+# --- 최적화 ---
+pulp==3.3.2                 # MILP 모델링 + CBC 솔버 호출
+ortools==9.15.6755          # VRP (라스트마일 순회)
+
+# --- 공간·네트워크 ---
+osmnx==2.1.1                # OSM 도로망 다운로드/캐시 (step1)
+geopandas==1.1.4            # 행정동 경계 shapefile
+shapely==2.1.2              # point-in-polygon (서울 경계 판정)
+networkx==3.6.1             # 노선망 그래프, Dijkstra
+
+# --- 데이터 처리 ---
+pandas==3.0.3
+numpy==2.4.6
+scipy==1.18.1               # griddata 보간 (3차원 곡면)
+openpyxl==3.1.5             # .xlsx 읽기
+xlrd==2.0.2                 # .xls 읽기
+tqdm==4.70.0                # step1 진행 표시
+
+# --- 시각화 ---
+matplotlib==3.10.9          # 한글 폰트 Malgun Gothic 사용 (Windows)
