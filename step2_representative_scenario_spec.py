@@ -56,7 +56,7 @@ p(f"  이 중 1호선 신규역: {', '.join(new_in_hubs) if new_in_hubs else '-'
 
 p("\n[비용]")
 p(f"  총비용            : {srow['총비용']:,.0f}원/일")
-p(f"  단위비용          : {srow['단위비용']:.1f}원/박스")
+p(f"  단위비용          : {srow['단위비용']:.2f}원/박스")
 
 p("\n[비용 구성 비중]")
 p(f"  라스트마일        : {srow['라스트마일비중']:.1%}")
@@ -84,7 +84,7 @@ if os.path.exists(elbow_path):
     detail = ", ".join(f"n={int(r['n'])} {r['총비용']/1e6:.3f}백만원"
                        for _, r in near.iterrows())
     p(f"  주변값은 {detail}으로, 최저점을 지나면 다시 올라간다.")
-    p(f"  격자 탐색이 허브 수 제한 없이 고른 값도 n={int(srow['n'])}개로 일치해, "
+    p(f"  정밀 재계산된 대표 시나리오의 허브 수도 n={int(srow['n'])}개로 일치해, "
       f"별도 고정 없이 이 결과를 대표 시나리오로 쓴다.")
 p("=" * 74)
 
